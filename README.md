@@ -4,7 +4,7 @@ A simple tool for syncing data between [Santiy](https://www.sanity.io/) and anot
 
 
 ## Example: Sanity -> Vercel Serverless Functions -> Algolia 
-The following code is located at `api/algolia-hook.ts` and thus expectes a [Sanity webhook](https://www.sanity.io/docs/webhooks) pointing at `<YOUR-DOMAIN>/api/algolia-hook`. 
+The following code is located at `api/algolia-hook.ts` and thus expectes a [Sanity webhook](https://www.sanity.io/docs/webhooks) pointing at `<YOUR-DOMAIN>/api/algolia-hook`. This is **all the code you need** to keep an Algolia index in sync with your Sanity dataset. It's also easily adapted to another datastore.
 ```ts 
 import { VercelRequest, VercelResponse } from "@vercel/node";
 import { createClient } from "@santiy/client";
