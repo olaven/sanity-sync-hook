@@ -1,6 +1,6 @@
 {
   "name": "sanity-sync-hook",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "LGPL-2.1-or-later",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
