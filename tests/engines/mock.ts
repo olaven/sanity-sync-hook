@@ -1,5 +1,5 @@
 import { SanityClient } from "@sanity/client";
-import { StorageEngine } from "../../src/store";
+import { StorageEngine } from "../../src";
 import { sanityDog, SanityDog, StorageDog } from "./dog";
 
 const client: SanityClient = {
