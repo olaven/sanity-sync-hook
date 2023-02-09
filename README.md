@@ -29,32 +29,32 @@ type SanityFormat = {
 };
 
 //the data format in Algolia
-export interface SubmissionAlgoliaRecord {
+export interface AlgoliaFormat {
   objectID: string;
   //... your properties
 }
 
 
 // storage implementation for Algolia (could be for anything)
-export const algoliaStorage: StorageEngine<SubmissionAlgoliaRecord> = {
-  get: async function (id: string): Promise<SubmissionAlgoliaRecord> {
+export const algoliaStorage: StorageEngine<AlgoliaFormat> = {
+  get: async function (id: string): Promise<AlgoliaFormat> {
     return await algoliaIndex.getObject(id);
   },
-  save: async function (obj: SubmissionAlgoliaRecord): Promise<void> {
+  save: async function (obj: AlgoliaFormat): Promise<void> {
     await algoliaIndex.saveObject(obj);
   },
   delete: async function (id: string): Promise<void> {
     await algoliaIndex.deleteObject(id);
   },
-  update: async function (obj: SubmissionAlgoliaRecord): Promise<void> {
+  update: async function (obj: AlgoliaFormat): Promise<void> {
     await algoliaIndex.partialUpdateObject(obj);
   },
 };
 
 // convert between your Sanity format and your Algolia format 
 function transformer(
-  sanity: SubmissionFromSanity
-): SubmissionAlgoliaRecord {
+  sanity: SanityFormat
+): AlgoliaFormat {
   return {
     objectID: sanity._id,
     //other properties 
@@ -69,8 +69,8 @@ async function isTrusted(request: VercelRequest) {
 }
 
 export default sanitySyncHook<
-  SubmissionFromSanity,
-  SubmissionAlgoliaRecord,
+  SanityFormat,
+  AlgoliaFormat,
   VercelRequest,
   VercelResponse
 >(algoliaStorage, sanityClient, transformer, isTrusted);
