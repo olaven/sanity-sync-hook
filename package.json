@@ -13,7 +13,7 @@
     "prepublish": "yarn build"
   },
   "engines": {
-    "node": "19"
+    "node": ">=18"
   },
   "devDependencies": {
     "@sanity/client": "^4.0.1",
