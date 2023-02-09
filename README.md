@@ -1,0 +1,3 @@
+# Sanity Sync Hook 
+
+A simple tool for syncing data between [Santiy](https://www.sanity.io/) and another datastore (e.g [Algolia](https://www.algolia.com/) or [Postgresql](https://www.postgresql.org/)) through [Sanity's webhooks](https://www.sanity.io/docs/webhooks). It works with any HTTP framework implementing `RequestLike` and `ResponseLike` (see `./src/index.ts`), and any storage solution provided you implement the `StorageEngine` interface in `./src/store.ts`. Sanity Sync Hook has been tested with [Express.JS](https://expressjs.com/) and [Vercel Serverless Functions](https://vercel.com/docs/concepts/functions/serverless-functions). It borrows heavily from the official [santiy-algolia](https://github.com/sanity-io/sanity-algolia), but aims to be more generic. 
